@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(0,0,0);
+background: -moz-linear-gradient(90deg, rgba(0,0,0,1) 29%, rgba(43,84,98,1) 62%, rgba(119,143,138,1) 85%);
+background: -webkit-linear-gradient(90deg, rgba(0,0,0,1) 29%, rgba(43,84,98,1) 62%, rgba(119,143,138,1) 85%);
+background: linear-gradient(90deg, rgba(0,0,0,1) 29%, rgba(43,84,98,1) 62%, rgba(119,143,138,1) 85%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#778f8a",GradientType=1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+    border-radius: 0.5em;
+}
+
+.gallery {
+    display: flex;
+    margin: 10px auto;
+    max-width: 600px;
+    position: relative;
+}
+
+@media screen and (min-width:600px) {
+    .gallery{
+        padding-top: 400px;
+    }
+}
+
+.gallery_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.gallery_thumb {
+    padding-top: 10px;
+    margin: 5px;
+    display: block;
+}
+
+.gallery_selector {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.gallery_selector:checked + .gallery_img {
+    opacity: 1;
+}
+
+.gallery_selector:checked ~ .gallery_thumb > img {
+    box-shadow: 0 0 0 3px #ff3b3b;
+}
